@@ -1,7 +1,10 @@
 import React from 'react';
 
 class SongForm extends React.Component {
-  state = { title: '' , album: ''}
+  state = {
+    title: '',
+    album: ''
+  }
 
   handleChange = (e) => {
     // let song = document.getElementById("form1").value;
@@ -10,7 +13,7 @@ class SongForm extends React.Component {
     // let albmum = $('.form2').value
     console.log("hi")
     // this.setState({ title: song, album: album })
-    this.setState({ title: e.target.value })
+    this.setState({title: e.target.value})
   }
 
   handleChange2 = (e) => {
@@ -19,9 +22,9 @@ class SongForm extends React.Component {
     // let album = document.getElementById("form2").value;
     // let song = $('.form1').value
     // let albmum = $('.form2').value
-    
+
     // this.setState({ title: song, album: album })
-    this.setState({ album: e.target.value })
+    this.setState({album: e.target.value})
   }
 
   handleSubmit = (e) => {
@@ -29,31 +32,29 @@ class SongForm extends React.Component {
     console.log(this.state.album)
     e.preventDefault()
     this.props.addSong(this.state.title, this.state.album)
-    this.setState({ title: '' , album: ''})
+    this.setState({title: '', album: ''})
   }
 
   render() {
-    return(
-      <form className="row" onSubmit={this.handleSubmit}>
-        <input
-          className="col m6"
-          id="form1"
-          placeholder="Add a SONG"
-          required
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <input
-          className="col m6"
-          id="form2"
-          placeholder="Add a Album"
-          required
-          value={this.state.album}
-          onChange={this.handleChange2}
-        />
-        <input style={{ display: "none" }} type="submit" value="Submit"/>
+    return (
+
+      <div class="row">
+      <form class="col s12" onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div class="input-field col s6">
+            <input id="form1" placeholder="Add a Song" required="required" value={this.state.title} onChange={this.handleChange}/>
+
+          </div>
+
+          <div class="input-field col s6">
+            <input id="form2" placeholder="Add a Album" required="required" value={this.state.album} onChange={this.handleChange2}/>
+          </div>
+          <input style={{
+              display: "none"
+            }} type="submit" value="Submit"/>
+        </div>
       </form>
-    )
+    </div>)
   }
 }
 

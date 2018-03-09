@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './multimedia.svg';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import SongList from "./components/SongList"
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   updateSong = (id) => {
-    //TODO api call 
+    //TODO api call
     fetch(`/api/songs/${id}`, {method: "PUT"})
     .then(res => res.json())
     .then(song => {
@@ -61,13 +61,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Top 100 Songs</h1>
         </header>
+        <section>
         <SongForm addSong={this.addSong} />
-        <SongList 
-          songs={this.state.songs} 
-          updateSong={this.updateSong} 
-          deleteSong={this.deleteSong} 
+
+        <SongList
+          songs={this.state.songs}
+          updateSong={this.updateSong}
+          deleteSong={this.deleteSong}
         />
-        
+        </section>
+
       </div>
     );
   }

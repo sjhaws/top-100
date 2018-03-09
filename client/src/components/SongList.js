@@ -1,33 +1,56 @@
 import React from "react"
 import Song from './Song'
 
-const SongList = ({ songs, updateSong, deleteSong }) => (
-  <div>
-    <div className="row">
-      <div className="col m5">  
-        TITLE
-      </div>
-      <div className="col m5">
-        ALBUM
-      </div>
-    </div>
+const SongList = ({songs, updateSong, deleteSong}) => (
+// <div>
+//   <div className="row">
+//     <div className="col m5">
+//       TITLE
+//     </div>
+//     <div className="col m5">
+//       ALBUM
+//     </div>
+//   </div>
+//
+//
+//
+//
+//   <div>
+//     <table>
+//     <ol>
+//   { songs.map( song =>
+//   <li>
+//     <Song
+//       key={song.id}
+//       {...song}
+//       updateSong={updateSong}
+//       deleteSong={deleteSong}
+//     />
+//     </li>
+//   )}
+//   </ol>
+//   </table>
+//   </div>
+// </div>
 
-    <div>
-      <ol>
-    { songs.map( song => 
-    <li>
-      <Song
-        key={song.id}
-        {...song}
-        updateSong={updateSong}
-        deleteSong={deleteSong}
-      />
-      </li>
-    )}
-    </ol>
-    </div>
-  </div>
-  
-)
+<table class="striped highlight responsive-table">
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>ALBUM</th>
+      <th>
+        <i class="material-icons">mode_edit</i>
+      </th>
+      <th>
+        <i class="material-icons">delete</i>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {songs.map(song => <Song key={song.id} {...song} updateSong={updateSong} deleteSong={deleteSong}/>)}
+
+  </tbody>
+</table>)
 
 export default SongList
