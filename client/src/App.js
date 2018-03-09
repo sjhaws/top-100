@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import SongList from "./components/SongList"
+import SongForm from "./components/SongForm"
 
 class App extends Component {
   state = { songs: [] }
@@ -15,15 +16,15 @@ class App extends Component {
 
   addSong = (title, album) => {
     //TODO make api call
-    let title = {title}
-    let album = {album}
+    // let jer = {title}
+    // let album = {album}
     fetch("/api/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(title, album)
+      body: JSON.stringify({title}, {album})
     })
     .then( res => res.json())
     .then( song=> {
@@ -61,7 +62,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Top 100 Songs</h1>
         </header>
-        <SongList />
+        <SongForm addSong={this.addSong} />
+        <SongList 
+          songs={this.state.songs} 
+          updateSong={this.updateSong} 
+          deleteSong={this.deleteSong} 
+        />
+        
       </div>
     );
   }

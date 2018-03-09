@@ -1,16 +1,16 @@
 import React from "react"
 
 const Song = ({id, title, album,  updateSong, deleteSong }) => (
-  <div className = "column s12">
-    <div className = "col m8">
-      <div className="center">
-        {title}
-        {album}
-      </div>
+  
+  <div className="row">
+    <div className="col m5">  
+      {title} 
     </div>
-    <div className="col m2">
+    <div className="col m5">
+      {album}
     </div>
-    <div style={ styles.pointer} className="col m1" onClick={ () => deleteSong(id)}>
+
+    <div className="col m2" onClick={ () => deleteSong(id)}>
     X
     </div>
   </div>
