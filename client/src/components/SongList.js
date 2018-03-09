@@ -1,6 +1,6 @@
 import React from "react"
 
-const SongList = ({ songs, updateItem, deleteItem }) => (
+const SongList = ({ songs, updateSong, deleteSong }) => (
   <div className="row">
   </div>
 )
