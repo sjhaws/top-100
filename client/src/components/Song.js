@@ -9,8 +9,10 @@ const Song = ({id, title, album,  updateSong, deleteSong }) => (
     <div className="col m5">
       {album}
     </div>
-
-    <div className="col m2" onClick={ () => deleteSong(id)}>
+    <div className="col m1" onClick={ () => updateSong(id)}>
+    
+    </div>
+    <div className="col m1" onClick={ () => deleteSong(id)}>
     X
     </div>
   </div>

@@ -13,14 +13,18 @@ const SongList = ({ songs, updateSong, deleteSong }) => (
     </div>
 
     <div>
+      <ol>
     { songs.map( song => 
+    <li>
       <Song
         key={song.id}
         {...song}
         updateSong={updateSong}
         deleteSong={deleteSong}
       />
+      </li>
     )}
+    </ol>
     </div>
   </div>
   

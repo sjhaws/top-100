@@ -16,15 +16,14 @@ class App extends Component {
 
   addSong = (title, album) => {
     //TODO make api call
-    // let jer = {title}
-    // let album = {album}
+    let songInfo = { title, album }
     fetch("/api/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({title}, {album})
+      body: JSON.stringify(songInfo)
     })
     .then( res => res.json())
     .then( song=> {
@@ -57,7 +56,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Top 100 Songs</h1>

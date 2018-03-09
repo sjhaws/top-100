@@ -29,13 +29,14 @@ class SongForm extends React.Component {
     console.log(this.state.album)
     e.preventDefault()
     this.props.addSong(this.state.title, this.state.album)
-    this.setState({ title: '' , almum: ''})
+    this.setState({ title: '' , album: ''})
   }
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="row" onSubmit={this.handleSubmit}>
         <input
+          className="col m6"
           id="form1"
           placeholder="Add a SONG"
           required
@@ -43,12 +44,14 @@ class SongForm extends React.Component {
           onChange={this.handleChange}
         />
         <input
+          className="col m6"
           id="form2"
           placeholder="Add a Album"
           required
           value={this.state.album}
           onChange={this.handleChange2}
         />
+        <input style={{ display: "none" }} type="submit" value="Submit"/>
       </form>
     )
   }
