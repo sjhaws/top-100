@@ -33,17 +33,11 @@ const SongList = ({songs, updateSong, deleteSong}) => (
 //   </div>
 // </div>
 
-<table class="striped highlight responsive-table">
+<table className="striped highlight responsive-table">
   <thead>
     <tr>
       <th>TITLE</th>
       <th>ALBUM</th>
-      <th>
-        <i class="material-icons">mode_edit</i>
-      </th>
-      <th>
-        <i class="material-icons">delete</i>
-      </th>
     </tr>
   </thead>
 

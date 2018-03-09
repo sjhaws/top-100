@@ -38,15 +38,15 @@ class SongForm extends React.Component {
   render() {
     return (
 
-      <div class="row">
-      <form class="col s12" onSubmit={this.handleSubmit}>
+      <div className="row">
+      <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <div class="input-field col s6">
+          <div className="input-field col s6">
             <input id="form1" placeholder="Add a Song" required="required" value={this.state.title} onChange={this.handleChange}/>
 
           </div>
 
-          <div class="input-field col s6">
+          <div className="input-field col s6">
             <input id="form2" placeholder="Add a Album" required="required" value={this.state.album} onChange={this.handleChange2}/>
           </div>
           <input style={{

@@ -34,7 +34,9 @@ class App extends Component {
 
   updateSong = (id) => {
     //TODO api call
-    fetch(`/api/songs/${id}`, {method: "PUT"})
+    console.log("edit me")
+    console.log("edit me")
+    fetch(`/api/songs/${id}`, {method: "PATCH"})
     .then(res => res.json())
     .then(song => {
       let songs = this.state.songs.map( song => {

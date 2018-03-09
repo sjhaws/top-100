@@ -21,8 +21,20 @@ const Song = ({id, title, album,  updateSong, deleteSong }) => (
 <tr>
     <td className="col m5">{title}</td>
     <td className="col m5">{album}</td>
-    <td className="col m1" onClick={ () => updateSong(id)}><i class="material-icons">mode_edit</i></td>
-    <td className="col m1" onClick={ () => deleteSong(id)}><i class="material-icons">delete</i></td>
+    <td className="col m1" onClick={ () => updateSong(id)}>
+      <i 
+        style={{cursor: 'pointer'}}
+        className="material-icons">
+        edit
+      </i>
+    </td>
+    <td className="col m1" onClick={ () => deleteSong(id)}>
+      <i 
+        style={{cursor: 'pointer'}}
+        className="material-icons">
+        delete
+      </i>
+    </td>
 </tr>
 
 
