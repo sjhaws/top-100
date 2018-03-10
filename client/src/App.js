@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <header className="App-header">
+        <header className="header top-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Top 100 Songs</h1>
         </header>

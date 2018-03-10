@@ -40,3 +40,9 @@ body {
 .row{
   margin-top: 20px;
 }
+
+.top-header{
+  background-color: #005588;
+  padding: 2%;
+}
+
