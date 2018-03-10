@@ -31,8 +31,6 @@ class SongForm extends React.Component {
   }
 
   handleSubmit = (e) => {
-    console.log("here")
-    console.log(this.state.album)
     e.preventDefault()
     this.props.addSong(this.state.title, this.state.album, this.state.rank)
     this.setState({title: '', album: '', rank: ''})
