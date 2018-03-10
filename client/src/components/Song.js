@@ -1,6 +1,6 @@
 import React from "react"
 
-const Song = ({id, title, album,  updateSong, deleteSong }) => (
+const Song = ({id, title, album, rank,  updateSong, deleteSong }) => (
 
   // <div className="row">
   //   <div className="col m5">
@@ -19,6 +19,7 @@ const Song = ({id, title, album,  updateSong, deleteSong }) => (
 
 
 <tr>
+    <td className="col m5">{rank}</td>
     <td className="col m5">{title}</td>
     <td className="col m5">{album}</td>
     <td className="col m1" onClick={ () => updateSong(id)}>

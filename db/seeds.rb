@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Song.create(title: "My Favorite Song", album: "Favorite Album")
+Song.create(title: "My Favorite Song", album: "Favorite Album", rank: 1)
 
-Song.create(title: "This song is six words long", album: "Weird Al")
+Song.create(title: "This song is six words long", album: "Weird Al", rank: 2)
 
-Song.create(title: "Small world after all", album: "Disney")
+Song.create(title: "Small world after all", album: "Disney", rank: 3)
 
-Song.create(title: "Least favorite song", album: "not a very favorit album")
+Song.create(title: "Least favorite song", album: "not a very favorit album", rank: 4)

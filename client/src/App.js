@@ -14,9 +14,9 @@ class App extends Component {
     .then( songs => this.setState({songs}))
   }
 
-  addSong = (title, album) => {
+  addSong = (title, album, rank) => {
     //TODO make api call
-    let songInfo = { title, album }
+    let songInfo = { title, album, rank }
     fetch("/api/songs", {
       method: "POST",
       headers: {

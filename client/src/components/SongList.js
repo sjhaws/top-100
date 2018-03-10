@@ -1,6 +1,7 @@
 import React from "react"
 import Song from './Song'
 
+
 const SongList = ({songs, updateSong, deleteSong}) => (
 // <div>
 //   <div className="row">
@@ -36,6 +37,7 @@ const SongList = ({songs, updateSong, deleteSong}) => (
 <table className="striped highlight responsive-table">
   <thead>
     <tr>
+      <th></th>
       <th>TITLE</th>
       <th>ALBUM</th>
     </tr>
