@@ -3,50 +3,30 @@ import Song from './Song'
 
 
 const SongList = ({songs, updateSong, deleteSong}) => (
-// <div>
-//   <div className="row">
-//     <div className="col m5">
-//       TITLE
-//     </div>
-//     <div className="col m5">
-//       ALBUM
-//     </div>
-//   </div>
-//
-//
-//
-//
-//   <div>
-//     <table>
-//     <ol>
-//   { songs.map( song =>
-//   <li>
-//     <Song
-//       key={song.id}
-//       {...song}
-//       updateSong={updateSong}
-//       deleteSong={deleteSong}
-//     />
-//     </li>
-//   )}
-//   </ol>
-//   </table>
-//   </div>
-// </div>
+<div>
+  <div id="hellojer" className="row">
+    <div className="col m1"/>
+    <div className="col m4">
+      <h4>TITLE</h4>
+    </div>
+    <div className="col m4">
+      <h4>ALBUM</h4>
+    </div>
+  </div>
 
-<table className="striped highlight responsive-table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>TITLE</th>
-      <th>ALBUM</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {songs.map(song => <Song key={song.id} {...song} updateSong={updateSong} deleteSong={deleteSong}/>)}
-
-  </tbody>
-</table>)
+  { songs.map ( song =>
+    
+      <Song
+        key={song.id}
+        {...song}
+        updateSong={updateSong}
+        deleteSong={deleteSong}
+      />
+    
+   
+  )}
+  
+</div>
+)
 
 export default SongList

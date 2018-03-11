@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-class SongForm extends React.Component {
+class SongEdit extends React.Component {
   state = {
     title: '',
     album: '',
@@ -8,21 +8,10 @@ class SongForm extends React.Component {
   }
 
   handleChange = (e) => {
-    // let song = document.getElementById("form1").value;
-    // let album = document.getElementById("form2").value;
-    // let song = $('.form1').value
-    // let albmum = $('.form2').value
-    // this.setState({ title: song, album: album })
     this.setState({title: e.target.value})
   }
 
   handleChange2 = (e) => {
-    // let song = document.getElementById("form1").value;
-    // let album = document.getElementById("form2").value;
-    // let song = $('.form1').value
-    // let albmum = $('.form2').value
-
-    // this.setState({ title: song, album: album })
     this.setState({album: e.target.value})
   }
 
@@ -30,9 +19,9 @@ class SongForm extends React.Component {
     this.setState({rank: e.target.value})
   }
 
-  handleSubmit = (e, edit) => {
+  handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addSong(this.state.title, this.state.album, this.state.rank)
+    this.props.updateSong(this.state.title, this.state.album, this.state.rank)
     this.setState({title: '', album: '', rank: ''})
   }
 
@@ -63,4 +52,5 @@ class SongForm extends React.Component {
   }
 }
 
-export default SongForm;
+
+export default SongEdit

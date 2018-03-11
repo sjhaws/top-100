@@ -35,8 +35,9 @@ class App extends Component {
   updateSong = (id) => {
     //TODO api call
     console.log("edit me")
-    console.log("edit me")
-    fetch(`/api/songs/${id}`, {method: "PATCH"})
+    fetch(`/api/songs/${id}`, {
+      method: "PATCH",
+    })
     .then(res => res.json())
     .then(song => {
       let songs = this.state.songs.map( song => {
@@ -64,10 +65,12 @@ class App extends Component {
           <h1 className="App-title">Top 100 Songs</h1>
         </header>
         <section>
-        <SongForm addSong={this.addSong} />
+        <SongForm 
+        addSong={this.addSong}/>
 
         <SongList
           songs={this.state.songs}
+          addSong={this.addSong}
           updateSong={this.updateSong}
           deleteSong={this.deleteSong}
         />
