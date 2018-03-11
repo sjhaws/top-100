@@ -6,13 +6,36 @@ class Song extends React.Component {
   //   console.log(document.getElementById("4"))
   // }
 
-  displayStaticRow = () => {
+  state = { edit: false }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    //update that values and make fields editable.
+    // this.props.addSong(this.state.title, this.state.album, this.state.rank)
+    // this.setState({title: '', album: '', rank: ''})
+    this.setState({ edit: false})
+  }
+
+  handleChange = (e) => {
+    this.setState({title: e.target.value})
+  }
+
+  handleChange2 = (e) => {
+    this.setState({album: e.target.value})
+  }
+
+  handleChange3 = (e) => {
+    this.setState({rank: e.target.value})
+  }
+
+
+  renderStaticRow = () => {
     return (
       <div>
       <div className="col m1">{this.props.rank}</div>
       <div className="col m4">{this.props.title}</div>
       <div className="col m4">{this.props.album}</div>
-      <div className="col m1" onClick = { () =>  this.render(true)}>
+      <div className="col m1" onClick = { () =>  this.setState({ edit: true}) }>
         <i 
           style={{cursor: 'pointer'}}
           className="material-icons">
@@ -31,7 +54,7 @@ class Song extends React.Component {
   }
 
   renderEditRow(){
-    return (`
+    return (
       <div>
       <form onSubmit={this.handleSubmit}>
           <div className="row">
@@ -50,24 +73,26 @@ class Song extends React.Component {
           </div>
         </form>
         </div>
-    `)
-  }
-  displayEditRow = () => {
-    console.log(document.getElementById(this.props.id))
-    console.log("edit me")
-    let element = document.getElementById(this.props.id)
-    element.innerHTML = ""+ this.renderEditRow();
+    )
   }
 
+  // displayEditRow = () => {
+  //   console.log(document.getElementById(this.props.id))
+  //   console.log("edit me")
+  //   // let element = document.getElementById(this.props.id)
+  //   // element.innerHTML = ""+ this.renderEditRow();
+  //   this.setState({ edit: true})
+  // }
 
 
-  render(edit){
+
+  render(){
     return(
       
        <div id={this.props.id} className="row" >
         
-        { edit && this.displayEditRow() }
-        { !edit && this.displayStaticRow() }
+       { this.state.edit ? this.renderEditRow() : this.renderStaticRow() }
+       
         
         </div>
     )

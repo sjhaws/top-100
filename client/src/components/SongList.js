@@ -14,8 +14,8 @@ const SongList = ({songs, updateSong, deleteSong}) => (
     </div>
   </div>
 
-  { songs.map ( song =>
-    
+  { songs.map( song =>
+
       <Song
         key={song.id}
         {...song}
@@ -23,7 +23,6 @@ const SongList = ({songs, updateSong, deleteSong}) => (
         deleteSong={deleteSong}
       />
     
-   
   )}
   
 </div>
