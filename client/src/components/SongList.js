@@ -5,14 +5,18 @@ import Song from './Song'
 const SongList = ({songs, updateSong, deleteSong}) => (
 <div>
   <div id="hellojer" className="row">
-    <div className="col m1"/>
-    <div className="col m4">
-      <h4>TITLE</h4>
+    <div className="col m1">
+      <h5>RANK</h5>
     </div>
     <div className="col m4">
-      <h4>ALBUM</h4>
+      <h5>TITLE</h5>
+    </div>
+    <div className="col m4">
+      <h5>ALBUM</h5>
     </div>
   </div>
+  <hr />
+  
 
   { songs.map( song =>
 

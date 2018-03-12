@@ -1,18 +1,17 @@
 import React from "react"
 
 class Song extends React.Component {
-//  state = {id: this.props.id, title: this.props.title, album: this.props.album, rank: this.props.rank}
-  // componentDidMount () {
-  //   console.log(document.getElementById("4"))
-  // }
 
-  state = { edit: false }
+  state = { 
+    edit: false,
+    title: this.props.title,
+    album: this.props.album,
+    rank: this.props.rank,
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    //update that values and make fields editable.
-    // this.props.addSong(this.state.title, this.state.album, this.state.rank)
-    // this.setState({title: '', album: '', rank: ''})
+    this.props.updateSong(this.props.id, this.state.title, this.state.album, this.state.rank)
     this.setState({ edit: false})
   }
 
@@ -28,13 +27,12 @@ class Song extends React.Component {
     this.setState({rank: e.target.value})
   }
 
-
   renderStaticRow = () => {
     return (
       <div>
-      <div className="col m1">{this.props.rank}</div>
-      <div className="col m4">{this.props.title}</div>
-      <div className="col m4">{this.props.album}</div>
+      <div className="col m1">{this.state.rank}</div>
+      <div className="col m4">{this.state.title}</div>
+      <div className="col m4">{this.state.album}</div>
       <div className="col m1" onClick = { () =>  this.setState({ edit: true}) }>
         <i 
           style={{cursor: 'pointer'}}
@@ -42,7 +40,7 @@ class Song extends React.Component {
           edit
         </i>
       </div>
-      <div className="col m1" onClick = { () => this.props.deleteSong(this.state.id)}>
+      <div className="col m1" onClick = { () => this.props.deleteSong(this.props.id)}>
         <i 
           style={{cursor: 'pointer'}}
           className="material-icons">
@@ -59,13 +57,13 @@ class Song extends React.Component {
       <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="input-field col m3">
-              <input id="form3" placeholder="Song Rank" required="required" value={this.props.rank} onChange={this.handleChange3}/>
+              <input id="form3" placeholder="Song Rank" required="required" value={this.state.rank} onChange={this.handleChange3}/>
             </div>
             <div className="input-field col m3">
-              <input id="form1" placeholder="Add a Song" required="required" value={this.props.title} onChange={this.handleChange}/>
+              <input id="form1" placeholder="Add a Song" required="required" value={this.state.title} onChange={this.handleChange}/>
             </div>
             <div className="input-field col m3">
-              <input id="form2" placeholder="Add a Album" required="required" value={this.props.album} onChange={this.handleChange2}/>
+              <input id="form2" placeholder="Add a Album" required="required" value={this.state.album} onChange={this.handleChange2}/>
             </div>
             <input style={{
                 display: "none"
@@ -75,6 +73,9 @@ class Song extends React.Component {
         </div>
     )
   }
+
+
+  // <input type="hidden" ref="id" value={ this.props.id } />
 
   // displayEditRow = () => {
   //   console.log(document.getElementById(this.props.id))

@@ -21,11 +21,14 @@ class Api::SongsController < ApplicationController
   end
 
   def update
-    song = Song.find(params[:id])
-    # if song.update(song_params)
-    #   render:
-    song.update( complete: !song.complete )
-    render json: item
+    # NOTE: in theory the js would check if the PATCH failed, 
+    # and if so revert the change locally rather than
+    # sending back a json object as done here
+    if @song.update(song_params)
+      render json: Song.all
+    else  
+      render json: { errors: @song.errors }, status: 422
+    end
   end
 
   def destroy

@@ -9,13 +9,17 @@ class App extends Component {
   state = { songs: [] }
 
   componentDidMount(){
+    // if you were ever going to add paging you'd need the sort 
+    // to be in the controller so you get page results correctly
     fetch("/api/songs")
     .then( response => response.json())
-    .then( songs => this.setState({songs}))
+    .then( songs => this.setState({songs: songs.sort((a, b) => a.rank - b.rank)}) )
   }
 
   addSong = (title, album, rank) => {
-    //TODO make api call
+    // NOTE: there is no error checking for adding duplicates
+    // not sure where to put it.  reject it on the component
+    // or let the database reject it.
     let songInfo = { title, album, rank }
     fetch("/api/songs", {
       method: "POST",
@@ -28,25 +32,30 @@ class App extends Component {
     .then( res => res.json())
     .then( song=> {
       const {songs} = this.state
-      this.setState({ songs: [...songs, song] })
+      // NOTE: maybe there is a way to DRY this up a bit
+      this.setState({ songs: [...songs, song].sort((a, b) => a.rank - b.rank) })
     })
   }
 
-  updateSong = (id) => {
+  updateSong = (id, title, album, rank) => {
     //TODO api call
-    console.log("edit me")
+    let songInfo = { title, album, rank }
     fetch(`/api/songs/${id}`, {
       method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(songInfo)
     })
-    .then(res => res.json())
-    .then(song => {
-      let songs = this.state.songs.map( song => {
-        if (song.id === id)
-          return song
-        return song
-      })
-      this.setState({songs})
-    })
+    // fetch returns a response, the 'then` turns response into response.json()
+    // and then next then gets the return value of that on stores it in `songs`
+    //
+    // NOTE: in theory the js would check if the PATCH failed, 
+    // and if so revert the change locally rather than
+    // recieving back a json object as seen here
+    .then( response => response.json())
+    .then( songs => this.setState({songs: songs.sort((a, b) => a.rank - b.rank)}) )
   }
 
   deleteSong = (id) => {
